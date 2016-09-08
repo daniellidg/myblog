@@ -9,21 +9,25 @@ module.exports = app => {
   const resourceMiddleware = require('../../middleware/resource')
   const authMiddleware = require('../../middleware/auth')
 
+  // 获取资源
   router.get('/', async (req, res) => {
     const data = await req.Model.find()
     res.send(data)
   })
 
+  // 获取资源详情
   router.get('/:id', async (req, res) => {
     const data = await req.Model.findById(req.params.id)
     res.send(data)
   })
 
+  // 删除资源
   router.delete('/:id', async (req, res) => {
     const data = await req.Model.findByIdAndDelete(req.params.id)
     res.send(data)
   })
 
+  // 创建资源
   router.post('/', async (req, res) => {
     const data = await req.Model.create(req.body)
     res.send({
@@ -32,6 +36,7 @@ module.exports = app => {
     })
   })
 
+  // 更新资源
   router.put('/:id', async (req, res) => {
     const data = await req.Model.findByIdAndUpdate(req.params.id, req.body)
     res.send({
