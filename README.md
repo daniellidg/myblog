@@ -1,7 +1,7 @@
 ### 环境准备
-  ## vue-cli
-  ## nodejs
-  ## mongodb
+  - vue-cli
+  - nodejs
+  - mongodb
 
 ### 新增分类
 ### 分类列表(增删改查)
