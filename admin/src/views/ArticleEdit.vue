@@ -5,6 +5,9 @@
       <el-form-item label="标题">
         <el-input v-model="model.title"></el-input>
       </el-form-item>
+      <el-form-item label="摘要">
+        <el-input type="textarea" v-model="model.summary"></el-input>
+      </el-form-item>
       <el-form-item label="分类">
         <el-select multiple v-model="model.categories" placeholder="请选择文章分类">
           <el-option
@@ -15,9 +18,12 @@
           ></el-option>
         </el-select>
       </el-form-item>
+      <el-form-item label="置顶">
+        <el-switch v-model="model.isTop" active-text="是" inactive-text="否"></el-switch>
+      </el-form-item>
       <el-form-item label="正文">
         <!-- <el-input v-model="model.body"></el-input> -->
-        <mavon-editor ref=md v-model="model.body" @imgAdd="$imgAdd" />
+        <mavon-editor ref="md" v-model="model.body" @imgAdd="$imgAdd" />
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="save">保存</el-button>
@@ -67,7 +73,7 @@ export default {
       // 第一步.将图片上传到服务器.
       var formdata = new FormData();
       formdata.append("file", $file);
-      const res = await this.$http.post('/upload', formdata)
+      const res = await this.$http.post("/upload", formdata);
       // 第二步.将返回的url替换到文本原位置![...](0) -> ![...](url)
       this.$refs.md.$img2Url(pos, res.data.url);
 

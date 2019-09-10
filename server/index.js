@@ -11,6 +11,7 @@ app.use('/uploads', express.static(__dirname + '/uploads'))
 
 require('./db/db')(app)
 require('./routers/admin/index')(app)
+require('./routers/web/index')(app)
 
 app.listen('3000', async(req, res) => {
   console.log("http://localhost:3000")

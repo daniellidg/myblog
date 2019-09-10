@@ -4,4 +4,11 @@ const schema = new mongoose.Schema({
   title: {type: String}
 })
 
-module.exports = mongoose.model('Category', schema)
+// schema.virtual('newsList', {
+//   localField: '_id',
+//   foreignField: 'categories',
+//   justOne: false,
+//   ref: 'Article'
+// })
+
+module.exports = mongoose.model('Category', schema, 'categories')
