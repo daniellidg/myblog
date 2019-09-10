@@ -38,3 +38,18 @@
 ### ngnix配置
 ### mongodb配置
 ### mongodb数据导入
+
+### 新建文章
+![新建文章](./screenshot/admin-article-create.png)
+
+### 分类列表
+![分类列表](./screenshot/admin-cat-list.png)
+
+### 博客首页
+![博客首页](./screenshot/web-home.png)
+
+### 博客归档页
+![博客首页](./screenshot/web-archive.png)
+
+### 博客标签页
+![博客首页](./screenshot/web-tag.png)
