@@ -65,6 +65,13 @@
             <a
               class="social github"
               target="blank"
+              href="https://juejin.im/user/59cde334f265da066876181c/posts"
+              title="访问 掘金"
+              data-hover="掘金"
+            >掘金</a>
+            <a
+              class="social github"
+              target="blank"
               href="https://github.com/lidaguang1989"
               title="访问 lidaguang1989"
               data-hover="GitHub"
@@ -104,21 +111,20 @@
                 </p>
                 <p>
                   Powered by
-                  <a
-                    href="https://liberxue.github.io/tags/#Jekyll"
-                    title="Jekyll"
-                    data-hover="Jekyll"
-                    target="_blank"
+                  <router-link
+                    to="/about"
+                    title="dykingdy"
+                    data-hover="dykingdy"
                     rel="nofollow"
-                  >Jekyll</a>
+                  >dykingdy</router-link>
                 </p>
                 <p>
-                  &copy; 2017
+                  &copy; 2019
                   <a
                     href="/feed.xml"
-                    title="访问 liberxue blog RSS"
-                    data-hover="liberxue blog RSS"
-                  >liberxue blog RSS</a>
+                    title="访问 dykingdy blog RSS"
+                    data-hover="dykingdy blog RSS"
+                  >dykingdy blog RSS</a>
                 </p>
                 <p>总计文章：{{modelLatest.totalArticles}}篇</p>
                 <p>
@@ -170,17 +176,17 @@ export default {
   },
   methods: {
     async fetchLatestArticles() {
-      const res = await this.$http.get("/articles/1")
+      const res = await this.$http.get("/articles/1");
       this.modelLatest = res.data;
     },
     async fetchTopArticles() {
-      const res = await this.$http.get("/articles/top")
+      const res = await this.$http.get("/articles/top");
       this.modelTop = res.data;
     }
   },
   created() {
-    this.fetchLatestArticles()
-    this.fetchTopArticles()
+    this.fetchLatestArticles();
+    this.fetchTopArticles();
   }
 };
 </script>

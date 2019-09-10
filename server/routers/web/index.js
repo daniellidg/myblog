@@ -38,7 +38,16 @@ module.exports = app => {
   })
 
   router.get('/archive', async (req, res) => {
-    const data = await Article.aggregate([{
+    const data = await Article.aggregate([
+      {
+        $lookup: {
+          from: 'categories',
+          localField: 'categories',
+          foreignField: '_id',
+          as: 'newList'
+        }
+      },
+      {
         $group: {
           _id: {
             $year: '$createdAt',
@@ -49,18 +58,10 @@ module.exports = app => {
               _id: '$_id',
               title: '$title',
               summary: '$summary',
-              categories: '$categories',
+              categories: '$newList',
               createdAt: '$createdAt',
             }
           }
-        }
-      },
-      {
-        $lookup: {
-          from: 'categories',
-          localField: '_id',
-          foreignField: 'categories',
-          as: 'categories'
         }
       },
       {$sort: {_id: -1}}

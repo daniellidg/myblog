@@ -7,7 +7,7 @@
           <div class="post-lists-body">
             <div class="post-list-item" v-for="article in item.list" :key="article.createdAt">
               <div class="post-list-item-container">
-                <div class="liberxue-title">{{article.categories}}</div>
+                <div class="liberxue-title">{{article.categories.map(cat => {return cat.title}).join('|')}}</div>
                 <div class="item-label">
                   <div class="item-title">
                     <router-link
@@ -19,9 +19,9 @@
                     <div class="item-meta-date">
                       {{article.createdAt | date('YYYY-MM-DD HH:mm:ss')}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <router-link
-                        :to="`/tags`"
-                        :data-hover="article.categories"
-                      >{{article.categories}}</router-link>
+                        :to="`/tag`"
+                        :data-hover="article.categories.map(cat => {return cat.title}).join('|')"
+                      >{{article.categories.map(cat => {return cat.title}).join('|')}}</router-link>
                     </div>
                   </div>
                 </div>
