@@ -45,7 +45,6 @@ export default {
     async fetch() {
       const res = await this.$http.get("/archive");
       this.model = res.data
-      console.log(this.model)
     }
   },
   created() {

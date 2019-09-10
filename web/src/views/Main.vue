@@ -25,24 +25,47 @@
                   </div>
                   <div class="item-label">
                     <div class="item-title">
-                      <a href="/" :title="`访问 ${item.title}`">{{item.title}}</a>
+                      <router-link
+                        :to="`/article/${item._id}`"
+                        :title="`访问 ${item.title}`"
+                      >{{item.title}}</router-link>
                     </div>
                     <div class="item-meta clearfix">
-                      <div
-                        class="item-meta-ico bg-ico-book"
-                        style="background: url('../assets/images/bg-ico.png') no-repeat;background-size: 40px auto;"
-                      ></div>
+                      <div class="item-meta-ico bg-ico-book" style="padding: 3px;">
+                        <svg
+                          t="1568096279911"
+                          style="transform: scale(.8)"
+                          class="icon"
+                          viewBox="0 0 1024 1024"
+                          version="1.1"
+                          xmlns="http://www.w3.org/2000/svg"
+                          p-id="5142"
+                          width="32"
+                          height="32"
+                        >
+                          <path
+                            d="M742.4 921.6h-512a25.6 25.6 0 0 1 0-51.2h512a25.6 25.6 0 0 1 0 51.2z"
+                            fill="#707070"
+                            p-id="5143"
+                          />
+                          <path
+                            d="M844.8 153.6a25.6 25.6 0 0 0-25.6 25.6v768a25.6 25.6 0 0 1-25.6 25.6h-563.2c-42.3424 0-76.8-34.4576-76.8-76.8S188.0576 819.2 230.4 819.2h460.8c42.3424 0 76.8-34.4576 76.8-76.8v-614.4c0-42.3424-34.4576-76.8-76.8-76.8h-512C136.8576 51.2 102.4 85.6576 102.4 128v768C102.4 966.5536 159.8464 1024 230.4 1024h563.2c42.3424 0 76.8-34.4576 76.8-76.8v-768a25.6 25.6 0 0 0-25.6-25.6z m-665.6-51.2h512a25.6 25.6 0 0 1 25.6 25.6v614.4a25.6 25.6 0 0 1-25.6 25.6h-460.8c-28.7744 0-55.3984 9.5744-76.8 25.6512V128a25.6 25.6 0 0 1 25.6-25.6z"
+                            fill="#707070"
+                            p-id="5144"
+                          />
+                        </svg>
+                      </div>
                       <div v-if="item.categories.length > 0" class="item-meta-cat">
-                        <a
-                          href="/"
-                          :title="`访问 ${item.categories[0].title}`"
-                          :data-hover="item.categories[0].title"
-                        >{{item.categories[0].title}}</a>
-                        <a
-                          href="/"
+                        <router-link
+                          :title="`访问 ${item.categories.map(cat => {return cat.title}).join('|')}`"
+                          :data-hover="item.categories.map(cat => {return cat.title}).join('|')"
+                          to="/tag"
+                        >{{item.categories.map(cat => {return cat.title}).join('|')}}</router-link>
+                        <router-link
                           :title="`访问 ${item.createdAt.split('-')[0]}`"
-                          :data-hover="item.createdAt"
-                        >{{item.createdAt}}</a>
+                          :data-hover="item.createdAt | date('YYYY-MM-DD HH:mm:ss')"
+                          to="/archive"
+                        >{{item.createdAt | date('YYYY-MM-DD HH:mm:ss')}}</router-link>
                       </div>
                     </div>
                   </div>

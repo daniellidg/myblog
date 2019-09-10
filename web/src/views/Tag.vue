@@ -17,7 +17,7 @@
       </div>
       <div class="main-content archive-page">
         <div v-for="item in model" :key="item._id" :id="`${item.title}`" class="post-lists">
-          <div class="categorys-item">
+          <div v-if="item.tagsList.length > 0" class="categorys-item">
             <div class="categorys-title">{{item.title}} : {{item.tagsList.length}}</div>
 
             <div v-for="tag in item.tagsList" :key="tag._id" class="post-list-item">

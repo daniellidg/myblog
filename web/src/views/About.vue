@@ -27,7 +27,7 @@
       </div>
       <div id="post-content" class="post-content" itemprop="articleBody">
         <p class="post-tags"></p>
-        <h1>body</h1>
+        <h1>...</h1>
       </div>
     </article>
   </div>

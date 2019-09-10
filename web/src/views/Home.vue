@@ -2,8 +2,8 @@
   <div id="header" class="home">
     <div id="header" class="header bg-white">
       <div class="navbar-container">
-        <a class="navbar-logo">
-          <img src="https://liberxue.github.io/style/images/logo-liberxue.png" />
+        <a class="navbar-logo" style="margin-top: -18px;">
+          <img src="../assets/images/logo.png" />
         </a>
         <div class="navbar-menu">
           <router-link to="/">首页</router-link>
@@ -92,7 +92,7 @@
             <div class="meta-copyright-info">
               <a href="/" class="info-logo">
                 <img
-                  src="https://liberxue.github.io/style/images/logo-liberxue.png"
+                  src="../assets/images/logo.png"
                   title="访问 Daguang"
                   data-hover="Daguang"
                   alt="Daguang"
