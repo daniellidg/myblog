@@ -24,7 +24,10 @@ module.exports = app => {
   // 删除资源
   router.delete('/:id', async (req, res) => {
     const data = await req.Model.findByIdAndDelete(req.params.id)
-    res.send(data)
+    res.send({
+      status: 0,
+      message: '删除成功'
+    })
   })
 
   // 创建资源

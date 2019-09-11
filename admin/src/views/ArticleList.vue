@@ -38,7 +38,9 @@ export default {
     },
     async del(row) {
       const res = await this.$http.delete(`/rest/articles/${row._id}`);
-      this.fetch();
+      if (res.data.status === 0) {
+        this.fetch();
+      }
     }
   },
   created() {
